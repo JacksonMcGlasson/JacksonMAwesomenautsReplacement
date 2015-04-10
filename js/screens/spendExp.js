@@ -26,6 +26,9 @@ game.SpendExp = me.ScreenObject.extend({
                 this.font.draw(renderer.getContext(), "F2: ADD STARTING GOLD ", this.pos.x, this.pos.y + 150);
                 this.font.draw(renderer.getContext(), "F3: INCREASE DAMAGE", this.pos.x, this.pos.y + 200);
                 this.font.draw(renderer.getContext(), "F4: INCREASE HEALTH ", this.pos.x, this.pos.y + 250);
+            },
+            update: function () {
+                return true;
             }
 
         })));
