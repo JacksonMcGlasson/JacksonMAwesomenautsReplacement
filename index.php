@@ -56,8 +56,10 @@ require_once (__DIR__ . "/php/controller/create-db.php");
         <script type="text/javascript" src="js/gamemanagers/GameManager.js"></script>
         <script type="text/javascript" src="js/gamemanagers/HeroDeathManager.js"></script>
         <script type="text/javascript" src="js/gamemanagers/SpendGold.js"></script>
+        <script type="text/javascript" src="js/gamemanagers/pause.js"></script>
         <script type="text/javascript" src="js/gamemanagers/GameTimerManager.js"></script>
         <script type="text/javascript" src="js/entities/EnemyCreep.js"></script>
+         <script type="text/javascript" src="js/entities/PlayerCreep.js"></script>
         <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
         <script type="text/javascript" src="js/entities/MiniMap.js"></script>
         <script type="text/javascript" src="js/entities/MiniPlayerLocation.js"></script>

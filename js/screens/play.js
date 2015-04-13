@@ -28,6 +28,7 @@ game.PlayScreen = me.ScreenObject.extend({
         
 
         me.input.bindKey(me.input.KEY.B, "buy");
+         me.input.bindKey(me.input.KEY.P, "pause");
         me.input.bindKey(me.input.KEY.Q, "skill1");
         me.input.bindKey(me.input.KEY.W, "skill2");
         me.input.bindKey(me.input.KEY.E, "skill3");
