@@ -40,7 +40,9 @@ var game = {
         buyscreen: "",
         buytext: "",
         minimap: "",
-        miniPlayer: ""
+        miniPlayer: "",
+        pausetext: "",
+        pausescreen: ""
     },
     // Run on page load.
     "onload": function () {
@@ -90,6 +92,7 @@ var game = {
         me.pool.register("spear", game.SpearThrow, true);
         me.pool.register("MiniMap", game.MiniMap, true);
         me.pool.register("MiniPlayerLocation", game.MiniPlayerLocation, true);
+//        me.pool.register("Pause", game.Pause, true);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());

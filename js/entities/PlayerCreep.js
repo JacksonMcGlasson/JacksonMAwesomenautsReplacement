@@ -20,9 +20,7 @@ game.PlayerCreep = me.Entity.extend({
         this.lastHit = new Date().getTime();
         this.now = new Date().getTime();
         this.body.setVelocity(game.data.creepMoveSpeed, 20);
-
         this.type = "PlayerCreep";
-
         this.renderable.addAnimation("walk", [3, 4, 5], 80);
         this.renderable.setCurrentAnimation("walk");
     },
@@ -35,20 +33,13 @@ game.PlayerCreep = me.Entity.extend({
             me.game.world.removeChild(this);
         }
         this.now = new Date().getTime();
-
         this.body.vel.x += this.body.accel.x * me.timer.tick;
-
         me.collision.check(this, true, this.collideHandler.bind(this), true);
-
         this.body.update(delta);
-
-
         this._super(me.Entity, "update", [delta]);
-
         return true;
     },
     collideHandler: function (response) {
-
         if (response.b.type === "EnemyBase") {
             this.attacking = true;
             this.lastAtacking = this.now;
@@ -60,10 +51,8 @@ game.PlayerCreep = me.Entity.extend({
             }
         } else if (response.b.type === "EnemyCreep") {
             var xdif = this.pos.x + response.b.pos.x;
-
             this.attacking = true;
             //this.lastAtacking = this.now;
-
             //keeps moving creep to right to maintain position
             if (xdif > 0) {
                 //this.pos.x = this.pos.x + 1;

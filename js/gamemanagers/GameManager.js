@@ -12,7 +12,6 @@ game.ExperienceManager = Object.extend({
             this.gameOver(false);
             alert("YOU LOSE!");
         }
-        console.log(game.data.exp);
 
         return true;
     },
