@@ -31,9 +31,9 @@ game.PlayerEntity = me.Entity.extend({
         this.lastAttack = new Date().getTime();
     },
     setAttributes: function () {
-        this.body.setVelocity(game.data.playerMoveSpeed, 20);
-        this.health = game.data.playerHealth;
-        this.attack = game.data.playerAttack;
+        this.body.setVelocity(game.data.playerMoveSpeed += game.data.exp2, 20);
+        this.health = game.data.playerHealth += game.data.exp4;
+        this.attack = game.data.playerAttack += game.data.exp3;
     },
     setFlags: function () {
         this.facing = "right";
