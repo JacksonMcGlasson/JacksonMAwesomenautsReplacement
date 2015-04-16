@@ -1,4 +1,3 @@
-
 /* Game namespace */
 var game = {
     // an object where to store game information
@@ -11,10 +10,10 @@ var game = {
         playerBaseHealth: 10,
         enemyCreepHealth: 5,
         playerCreepHealth: 5,
-        playerHealth: 10,
+        playerHealth: 10 + exp4,
         enemyCreepAttack: 1,
         playerCreepAttack: 1,
-        playerAttack: 2,
+        playerAttack: 1 + exp3,
         playerAttackTimer: 1000,
         creepAttackTimer: 1000,
         playerMoveSpeed: 5,
@@ -24,7 +23,7 @@ var game = {
         spearTimer: 15,
         player: "",
         exp: 0,
-        gold: 0,
+        gold: 0 + exp2,
         ability1: 0,
         ability2: 0,
         ability3: 0,
@@ -40,9 +39,7 @@ var game = {
         buyscreen: "",
         buytext: "",
         minimap: "",
-        miniPlayer: "",
-        pausetext: "",
-        pausescreen: ""
+        miniPlayer: ""
     },
     // Run on page load.
     "onload": function () {
@@ -92,7 +89,6 @@ var game = {
         me.pool.register("spear", game.SpearThrow, true);
         me.pool.register("MiniMap", game.MiniMap, true);
         me.pool.register("MiniPlayerLocation", game.MiniPlayerLocation, true);
-//        me.pool.register("Pause", game.Pause, true);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
