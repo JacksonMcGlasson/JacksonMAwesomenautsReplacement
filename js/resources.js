@@ -27,12 +27,12 @@ game.resources = [
      * {name: "example01", type: "tmx", src: "data/map/example01.json"},
      */
     {name: "Level01", type: "tmx", src: "data/map/Level01.tmx"},
-    {name: "Level02", type: "tmx", src: "data/map/Level02.tmx"}
+    {name: "Level02", type: "tmx", src: "data/map/Level02.tmx"},
     /* Background music. 
      * @example
      * {name: "example_bgm", type: "audio", src: "data/bgm/"},
      */
-
+{name: "Happy-Chiptune", type: "audio", src: "data/bgm/"}
     /* Sound effects. 
      * @example
      * {name: "example_sfx", type: "audio", src: "data/sfx/"}

@@ -5,6 +5,8 @@ game.PlayScreen = me.ScreenObject.extend({
     onResetEvent: function () {
         // reset the score
         game.data.score = 0;
+        
+       
 
         me.levelDirector.loadLevel("Level01");
 
@@ -28,7 +30,7 @@ game.PlayScreen = me.ScreenObject.extend({
         game.data.minimap = me.pool.pull("MiniMap", 10, 10, {});
         me.game.world.addChild(game.data.minimap, 30);
         
-        
+         me.audio.playTrack("Happy-Chiptune.mp3");
 
         me.input.bindKey(me.input.KEY.B, "buy");
          me.input.bindKey(me.input.KEY.P, "pause");
@@ -49,7 +51,8 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent: function () {
         // remove the HUD from the game world
         me.game.world.removeChild(this.HUD);
-        me.game.world.removeChild(game.data.player)
+        me.game.world.removeChild(game.data.player);
+        me.audio.stopTrack();
 
     },
     resetPlayer: function (x, y) {
