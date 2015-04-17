@@ -4,6 +4,8 @@ game.SpendExp = me.ScreenObject.extend({
      */
     onResetEvent: function () {
         me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("exp-screen")), -10);
+        
+         me.audio.playTrack("George Street Shuffle");
 
         me.input.bindKey(me.input.KEY.F1, "F1");
         me.input.bindKey(me.input.KEY.F2, "F2");
@@ -78,5 +80,6 @@ game.SpendExp = me.ScreenObject.extend({
         me.input.unbindKey(me.input.KEY.F4, "F4");
         me.input.unbindKey(me.input.KEY.F5, "F5");
         me.event.unsubscribe(this.handler);
+         me.audio.stopTrack();
     }
 });
