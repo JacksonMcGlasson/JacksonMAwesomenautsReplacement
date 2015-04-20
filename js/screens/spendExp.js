@@ -3,10 +3,11 @@ game.SpendExp = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function () {
+        //adds background image
         me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage("exp-screen")), -10);
-        
+        //plays music
          me.audio.playTrack("George Street Shuffle");
-
+        //binds keys
         me.input.bindKey(me.input.KEY.F1, "F1");
         me.input.bindKey(me.input.KEY.F2, "F2");
         me.input.bindKey(me.input.KEY.F3, "F3");
@@ -21,10 +22,12 @@ game.SpendExp = me.ScreenObject.extend({
         me.game.world.addChild(new (me.Renderable.extend({
             init: function () {
                 this._super(me.Renderable, 'init', [10, 10, 300, 50]);
+                //sets font
                 this.font = new me.Font("Arial", 26, "white");
 
             },
             draw: function (renderer) {
+                //this is what is written on the screen
                 this.font.draw(renderer.getContext(), "PRESS F1-F4 TO BUY, F5 TO SKIP ", this.pos.x, this.pos.y);
                 this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100, this.pos.y + 50);
                 this.font.draw(renderer.getContext(), "F1: INCREASE GOLD PRODUCTION  CURRENT LEVEL:" + game.data.exp1.toString() + "  COST:" + exp1cost, this.pos.x, this.pos.y + 100);
@@ -36,8 +39,11 @@ game.SpendExp = me.ScreenObject.extend({
         })));
 
         this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keycode, edge) {
+            //if F1 is pressed
             if (action === "F1") {
+                //and if exp is greater than the cost
                 if (game.data.exp >= exp1cost) {
+                    //than add level to skill and subtract cost from exp
                     game.data.exp1 += 1;
                     game.data.exp -= exp1cost;
                 } else {
@@ -64,7 +70,9 @@ game.SpendExp = me.ScreenObject.extend({
                 } else {
                     console.log("Not enough exp for ability 4");
                 }
+            //if F5 is pressed
             } else if (action === "F5") {
+                //than change the state to play
                 me.state.change(me.state.PLAY);
             }
         });
@@ -74,12 +82,14 @@ game.SpendExp = me.ScreenObject.extend({
      *  action to perform when leaving this screen (state change)
      */
     onDestroyEvent: function () {
+        //unbinds the keys
         me.input.unbindKey(me.input.KEY.F1, "F1");
         me.input.unbindKey(me.input.KEY.F2, "F2");
         me.input.unbindKey(me.input.KEY.F3, "F3");
         me.input.unbindKey(me.input.KEY.F4, "F4");
         me.input.unbindKey(me.input.KEY.F5, "F5");
         me.event.unsubscribe(this.handler);
+        //stops music
          me.audio.stopTrack();
     }
 });
