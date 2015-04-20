@@ -17,9 +17,12 @@ game.SpearThrow = me.Entity.extend({
         this.facing = facing;
     },
     update: function (delta) {
+        //if the player is facing left
         if (this.facing === "left") {
+            //than the spear will go left
             this.body.vel.x -= this.body.accel.x * me.timer.tick;
         } else {
+            //if not it will go right
             this.body.vel.x += this.body.accel.x * me.timer.tick;
         }
         me.collision.check(this, true, this.collideHandler.bind(this), true);
@@ -28,8 +31,11 @@ game.SpearThrow = me.Entity.extend({
         return true;
     },
     collideHandler: function (response) {
+        //if the spear hits the enemy base or the enemy creep
         if (response.b.type === "EnemyBase" || response.b.type === "EnemyCreep") {
+            //the enemy will lose health
             response.b.loseHealth(this.attack);
+            //and the spear will disappear
             me.game.world.removeChild(this);
         }
     }

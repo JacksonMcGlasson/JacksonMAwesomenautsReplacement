@@ -21,7 +21,7 @@ require_once (__DIR__ . "/php/controller/create-db.php");
     <body>
         <!-- Canvas placeholder -->
         <div id="screen"></div>
-
+        <!--form for registering or loading an old game-->
         <form id="input" method="post">
             <div class="field">
                 <label for="username">Username</label>
@@ -56,10 +56,9 @@ require_once (__DIR__ . "/php/controller/create-db.php");
         <script type="text/javascript" src="js/gamemanagers/GameManager.js"></script>
         <script type="text/javascript" src="js/gamemanagers/HeroDeathManager.js"></script>
         <script type="text/javascript" src="js/gamemanagers/SpendGold.js"></script>
-        <script type="text/javascript" src="js/gamemanagers/pause.js"></script>
         <script type="text/javascript" src="js/gamemanagers/GameTimerManager.js"></script>
         <script type="text/javascript" src="js/entities/EnemyCreep.js"></script>
-         <script type="text/javascript" src="js/entities/PlayerCreep.js"></script>
+        <script type="text/javascript" src="js/entities/PlayerCreep.js"></script>
         <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
         <script type="text/javascript" src="js/entities/MiniMap.js"></script>
         <script type="text/javascript" src="js/entities/MiniPlayerLocation.js"></script>
@@ -71,6 +70,7 @@ require_once (__DIR__ . "/php/controller/create-db.php");
         <script type="text/javascript" src="js/screens/spendExp.js"></script>
         <!-- /build -->
         <!-- Bootstrap & Mobile optimization tricks -->
+        
         <script type="text/javascript">
             window.onReady(function onReady() {
                 game.onload();
@@ -134,7 +134,7 @@ require_once (__DIR__ . "/php/controller/create-db.php");
 
                             } else {
                                 var data = jQuery.parseJSON(response);
-                                game.data.exp = Number(data["exp"]);
+                               game.data.exp = Number(data["exp"]);
                                 game.data.exp1 = Number(data["exp1"]);
                                 game.data.exp2 = Number(data["exp2"]);
                                 game.data.exp3 = Number(data["exp3"]);

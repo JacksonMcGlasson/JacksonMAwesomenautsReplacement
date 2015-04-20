@@ -12,7 +12,7 @@ game.Pause = Object.extend({
         // console.log(this.now - this.lastBuy);
         if (me.input.isKeyPressed("pause") && ((this.now - this.lastPause) >= 500)) {
             console.log("buy screen");
-            this.lastBuy = this.now;
+            this.lastPause = this.now;
             if (!this.pausing) {
                 console.log("time to buy");
                 this.pause();
@@ -23,7 +23,7 @@ game.Pause = Object.extend({
         return true;
     },
     pause: function () {
-        console.log("green");
+       
         this.pausing = true;
         
         game.data.pausePos = me.game.viewport.localToWorld(0, 0);
@@ -45,10 +45,10 @@ game.Pause = Object.extend({
                 this.font = new me.Font("Arial", 26, "white");
                 this.updateWhenPaused = true;
                 this.alwaysUpdate = true;
-                console.log("red");
+               
             },
             draw: function(renderer){
-                console.log(" orange");
+               
                 this.font.draw(renderer.getContext(), "PAUSE SCREEN " , this.pos.x, this.pos.y);
                
 
