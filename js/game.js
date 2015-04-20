@@ -1,3 +1,4 @@
+
 /* Game namespace */
 var game = {
     // an object where to store game information
@@ -6,6 +7,7 @@ var game = {
         score: 0,
         option1: "",
         option2: "",
+        enemyhero:"",
         enemyBaseHealth: 10,
         playerBaseHealth: 20,
         enemyCreepHealth: 10,
@@ -38,6 +40,8 @@ var game = {
         pausePos: "",
         buyscreen: "",
         buytext: "",
+        pausescreen: "",
+        pausetext: "",
         minimap: "",
         miniPlayer: ""
     },
@@ -89,6 +93,8 @@ var game = {
         me.pool.register("spear", game.SpearThrow, true);
         me.pool.register("MiniMap", game.MiniMap, true);
         me.pool.register("MiniPlayerLocation", game.MiniPlayerLocation, true);
+        me.pool.register("Pause", game.Pause, true);
+        me.pool.register("EnemyHero", game.EnemyHero, true);
 
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
